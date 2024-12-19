@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac Maze</title>
+    <link rel="icon" href="pacmaze.webp" type="image/x-icon">
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #000;  /* Black background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Hide any overflow to avoid scrolling */
+            margin: 0;
+            height: 100%;
+        }
+
+        .game-section {
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute; /* Ensure the section is full-screen */
+            top: 0;
+            left: 0;
+        }
+
+        /* Optional: If you need to add custom styles for the game iframe */
+        .game-section iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Optional: Mobile responsiveness adjustments */
+        @media (max-width: 768px) {
+            .game-section iframe {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-section">
+        <script src="https://cdn.htmlgames.com/embed.js?game=PacMaze&amp;bgcolor=black"></script>
+    </div>
+
+</body>
+</html>

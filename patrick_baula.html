@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrick Baula</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="Aphrodite.mp3" type="audio/mpeg">
+        
+    </audio>
+
+    <video autoplay muted loop class="background-video">
+        <source src="card4.mp4" type="video/mp4">
+        
+    </video>
+
+    <div class="container">
+        <div class="profile-section">
+            <img src="patrick.jpg" alt="Patrick Baula">
+            
+            
+            <h1>Patrick Baula</h1>
+            <h2></h2>
+            <p>
+                A sleepy head and a gamer are like someone who’s always torn between the thrill of a virtual world and the heavy pull of sleep. They’ll stay up late, lost in the game, but the second they stop, exhaustion crashes in, and they can’t resist drifting off to recharge for the next round.
+            </p>
+            <div class="music-controls">
+                <div class="song-info">
+                    <div class="song-title">Aphrodite</div>
+                    <div class="song-artist">The Ridleys</div>
+                </div>
+                <button id="musicToggle" class="music-button">
+                    <i class="fas fa-play" id="playIcon"></i>
+                </button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+            <a href="javascript:history.back()" class="back-button">Back</a>
+        </div>
+
+        <div class="content-section">
+            <h2>Nickname</h2>
+            <ul>
+                <li>Bugoy</li>
+            </ul>
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Playing Rubik's Cube</li>
+                <li>Playing Online Games</li>
+            </ul>
+
+            <h2>Education</h2>
+            <ul>
+                <li><strong>Cavite State University - Naic Campus</strong><br>Bachelor of Science in Computer Science</li>
+                <li><strong>Cavite West Point College - Ternate Cavite</strong>  Senior High School<br>Science, Technology, Engineering and Mathematics (STEM)</li>
+                <li><strong>Ternate National High School</strong></li>
+            </ul>
+
+            <h2>Programming Skills</h2>
+            <ul>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Java</li>
+                <li>MySQL</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const music = document.getElementById('backgroundMusic');
+        const musicButton = document.getElementById('musicToggle');
+        const playIcon = document.getElementById('playIcon');
+        const progressBar = document.getElementById('progressBar');
+        
+        musicButton.addEventListener('click', function() {
+            if (music.paused) {
+                music.play();
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            } else {
+                music.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            }
+        });
+
+        
+        music.addEventListener('timeupdate', function() {
+            const progress = (music.currentTime / music.duration) * 100;
+            progressBar.style.width = progress + '%';
+        });
+    </script>
+</body>
+</html>
