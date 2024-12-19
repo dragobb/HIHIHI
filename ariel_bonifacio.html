@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ariel Bonifacio - Profile</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="Masterpiece.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <video autoplay muted loop class="background-video">
+        <source src="card4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container">
+        <div class="profile-section">
+            <img src="ariel_prof.jpg" alt="Ariel Bonifacio">
+            <!-- Updated music controls section -->
+            
+            <h1>Ariel Bonifacio</h1>
+            <h2> </h2>
+            <p>
+                Cherishes meaningful connections and loves spending time with friends, exploring the world through road trips and travel. Finds joy in simple pleasures like dining in malls and discovering cozy, inviting places.
+            </p>
+            <div class="music-controls">
+                <div class="song-info">
+                    <div class="song-title">Masterpiece</div>
+                    <div class="song-artist">Atlantic Star</div>
+                </div>
+                <button id="musicToggle" class="music-button">
+                    <i class="fas fa-play" id="playIcon"></i>
+                </button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+            <a href="javascript:history.back()" class="back-button">Back</a>
+        </div>
+
+        <div class="content-section">
+            <h2>Nickname</h2>
+            <ul>
+                <li>Ayie, Yel</li>
+                
+            </ul>
+            <h2>Organization</h2>
+            <ul>
+                <li><strong>Our lady of Holy Rosary Parish - Amaya, Tanza, Cavite</strong><br>Music Ministry</li>
+                <li><strong>Parish Pastoral Council for Responsible Voting</strong><br>Poll Watcher</li>
+                <li><strong>Safety Organization of the Philippines</strong><br>Safety Officer 1</li>
+            </ul>
+            <h2>Education</h2>
+            <ul>
+                <li><strong>Cavite State University - Naic Campus</strong><br>Bachelor of Science in Computer Science</li>
+                <li><strong>Amaya School of Home Industries</strong><br>Industrial Arts - TVL Major in Electrical Installation and Maintenance</li>
+            </ul>
+
+            <h2>Programming Skills</h2>
+            <ul>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Java</li>
+                <li>MySQL</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const music = document.getElementById('backgroundMusic');
+        const musicButton = document.getElementById('musicToggle');
+        const playIcon = document.getElementById('playIcon');
+        const progressBar = document.getElementById('progressBar');
+        
+        musicButton.addEventListener('click', function() {
+            if (music.paused) {
+                music.play();
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            } else {
+                music.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            }
+        });
+
+        
+        music.addEventListener('timeupdate', function() {
+            const progress = (music.currentTime / music.duration) * 100;
+            progressBar.style.width = progress + '%';
+        });
+    </script>
+</body>
+</html>

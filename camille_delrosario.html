@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camille Del Rosario</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="The Night We Met.mp3" type="audio/mpeg">
+    </audio>
+
+    <video autoplay muted loop class="background-video">
+        <source src="card4.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="profile-section">
+            <img src="camille.jpg" alt="Camille Del Rosario">
+            
+            
+            <h1>Camille Del Rosario</h1>
+            <h2> </h2>
+            <p>
+                A person is like eyeglasses—helping others see things more clearly, offering a fresh perspective with every glance. But just like glasses, they can feel blurred or out of focus when they’re not fully seen or appreciated for who they truly are.
+            </p>
+            <div class="music-controls">
+                <div class="song-info">
+                    <div class="song-title">The Night We Met</div>
+                    <div class="song-artist">Lord Huron</div>
+                </div>
+                <button id="musicToggle" class="music-button">
+                    <i class="fas fa-play" id="playIcon"></i>
+                </button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+            <a href="javascript:history.back()" class="back-button">Back</a>
+        </div>
+
+        <div class="content-section">
+            
+            <h2>Nickname</h2>
+            <ul>
+                <li>Kamila</li>
+            </ul>
+            <h2>Experience</h2>
+            <ul>
+                <li><strong>Department of Social Welfare and Development</strong><br>Office Assistant</li>
+            </ul>
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Solving Rubik's Cube</li>
+                
+            </ul>
+
+            <h2>Education</h2>
+            <ul>
+                <li><strong>Cavite State University - Naic Campus</strong><br>Bachelor of Science in Secondary Education</li>
+                <li><strong>Tertiary Education</strong></li>
+            </ul>
+
+            <h2>Programming Skills</h2>
+            <ul>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Java</li>
+                <li>MySQL</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const music = document.getElementById('backgroundMusic');
+        const musicButton = document.getElementById('musicToggle');
+        const playIcon = document.getElementById('playIcon');
+        const progressBar = document.getElementById('progressBar');
+        
+        musicButton.addEventListener('click', function() {
+            if (music.paused) {
+                music.play();
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            } else {
+                music.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            }
+        });
+
+        
+        music.addEventListener('timeupdate', function() {
+            const progress = (music.currentTime / music.duration) * 100;
+            progressBar.style.width = progress + '%';
+        });
+    </script>
+</body>
+</html>
