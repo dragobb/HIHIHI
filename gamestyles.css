@@ -1,0 +1,99 @@
+body { 
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to top, #2e3b4e, #1b1f2d);
+    color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    animation: fadeInBackground 1.5s ease-out;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+    padding-top: 100px;  /* Add space from the top */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-100px); /* Start above the screen */
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    width: 300px;
+    cursor: pointer;
+}
+
+/* Falling animation for cards */
+@keyframes fallIn {
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End position after falling */
+    }
+}
+
+.card {
+    animation: fallIn 0.8s ease-out forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h5 {
+    font-size: 1.5rem;
+    color: #7560eb;
+}
+
+.card-body p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+/* Blur effect on cards when one is hovered */
+.card-blurred {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+.card:hover ~ .card {
+    filter: blur(5px);
+}
